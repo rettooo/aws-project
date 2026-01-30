@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포트폴리오 | 자기소개</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --bg-card: #ffffff;
+      --text: #2c2c2c;
+      --text-soft: #5a5a5a;
+      --accent: #c17f59;
+      --accent-dark: #a66b47;
+      --border: #e8e6e3;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* ========== 공통 섹션 ========== */
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 56px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* ========== 히어로 ========== */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px 100px;
+      background: linear-gradient(180deg, rgba(193, 127, 89, 0.06) 0%, transparent 60%);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero .tagline {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .hero .scroll-hint {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      opacity: 0.8;
+      margin-top: 40px;
+    }
+
+    .hero .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 10px auto 0;
+      border-right: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      transform: rotate(45deg);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(6px); }
+    }
+
+    /* ========== 자기소개 ========== */
+    .about {
+      display: grid;
+      gap: 28px;
+      align-items: start;
+    }
+
+    @media (min-width: 600px) {
+      .about {
+        grid-template-columns: 140px 1fr;
+      }
+    }
+
+    .about-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--border) 0%, #ddd 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-soft);
+      font-size: 0.8rem;
+    }
+
+    .about-text p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ========== 역량/기술 ========== */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      padding: 8px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    /* ========== 경력/학력/활동 ========== */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .timeline-item {
+      padding: 20px 24px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent);
+    }
+
+    .timeline-item .period {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .role {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .desc {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    /* ========== 프로젝트 ========== */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project-card {
+      padding: 24px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    .project-card .link {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .project-card .link:hover {
+      text-decoration: underline;
+    }
+
+    /* ========== 연락처 ========== */
+    .contact {
+      background: linear-gradient(180deg, transparent 0%, rgba(193, 127, 89, 0.06) 100%);
+      padding-bottom: 80px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--bg-card);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      box-shadow: var(--shadow);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .contact-links a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+<body>
+  <!-- 1. 히어로: 이름 + 한 줄 포지셔닝 -->
+  <header class="hero">
+    <h1>홍길동</h1>
+    <p class="tagline">백엔드 개발자 · 사용자 경험을 생각하는 코드를 쓰고 싶습니다</p>
+    <p class="scroll-hint">아래로 스크롤</p>
+  </header>
+
+  <!-- 2. 자기소개 -->
+  <section id="about">
+    <h2 class="section-title">자기소개</h2>
+    <div class="about">
+      <div class="about-photo">사진</div>
+      <div class="about-text">
+        <p>안녕하세요. 사용자 가치를 우선하는 백엔드 개발자 홍길동입니다.</p>
+        <p>OO대학교 컴퓨터공학과를 졸업했고, 웹 서비스 설계와 API 개발에 관심이 많습니다. 팀 프로젝트에서 서버 설계와 배포를 담당했으며, AWS를 활용한 인프라 구축 경험이 있습니다.</p>
+        <p>단순히 동작하는 코드가 아니라, 유지보수하기 좋고 확장 가능한 구조를 지향합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 역량 / 기술 -->
+  <section id="skills">
+    <h2 class="section-title">역량 & 기술</h2>
+    <div class="skills-list">
+      <span class="skill-tag">Java / Spring Boot</span>
+      <span class="skill-tag">AWS</span>
+      <span class="skill-tag">REST API</span>
+      <span class="skill-tag">MySQL</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">Linux</span>
+    </div>
+  </section>
+
+  <!-- 4. 경력 / 학력 / 활동 -->
+  <section id="experience">
+    <h2 class="section-title">경력 · 학력 · 활동</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="period">2022.03 – 2024.02</div>
+        <div class="role">OO대학교 컴퓨터공학과 졸업</div>
+        <div class="desc">웹 개발, 데이터베이스, 운영체제 등 이수</div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2023.07 – 2023.08</div>
+        <div class="role">OO 스타트업 인턴</div>
+        <div class="desc">Spring Boot 기반 관리자 API 개발 및 배포 참여</div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2023.03 – 2023.06</div>
+        <div class="role">교내 프로젝트 팀장</div>
+        <div class="desc">팀원 4명과 웹 서비스 기획·개발·배포 (AWS EC2)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 대표 프로젝트 -->
+  <section id="projects">
+    <h2 class="section-title">대표 프로젝트</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>프로젝트 A – 웹 서비스</h3>
+        <p>Spring Boot + MySQL 기반의 OO 기능을 제공하는 웹 API. JWT 인증, REST 설계, EC2 배포를 담당했습니다.</p>
+        <a class="link" href="#" target="_blank" rel="noopener">GitHub 보기 →</a>
+      </div>
+      <div class="project-card">
+        <h3>프로젝트 B – 배포/인프라</h3>
+        <p>AWS EC2, RDS를 이용한 배포 파이프라인 구성. CI/CD와 모니터링 설정 경험.</p>
+        <a class="link" href="#" target="_blank" rel="noopener">GitHub 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 연락처 -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">연락처</h2>
+    <p style="color: var(--text-soft); margin-bottom: 16px;">궁금한 점이 있으시면 편하게 연락 주세요.</p>
+    <div class="contact-links">
+      <a href="mailto:your@email.com">✉ 이메일</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 홍길동. Portfolio.
+  </footer>
+</body>
+</html>
